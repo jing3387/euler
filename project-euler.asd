@@ -3,9 +3,5 @@
   :author "Jarrod Jeffrey Ingram <jing0012@uni.sydney.edu.au>"
   :depends-on (:iterate)
   :components ((:file "packages")
-               (:file "1" :depends-on ("packages"))
-               (:file "2" :depends-on ("packages"))
-               (:file "3" :depends-on ("packages"))
-               (:file "16" :depends-on ("packages"))
-               (:file "17" :depends-on ("packages"))
-               (:file "19" :depends-on ("packages"))))
+               (:file "1-25" :depends-on ("packages"))
+               (:file "util" :depends-on ("packages"))))

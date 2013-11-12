@@ -19,6 +19,34 @@
 (defun three ()
   (last* (prime-factors 600851475143)))
 
+(defun four ()
+  (iter outer (for i from 100 to 999)
+        (iter (for j from 100 to 999)
+              (let* ((k (* i j))
+                     (d (get-digits k)))
+                (when (equal d (reverse d))
+                  (in outer (maximize k)))))))
+
+(defun five ()
+  nil)
+
+(defun six ()
+  (let ((sum-squares (iter (for i from 1 to 100)
+                           (sum (expt i 2))))
+        (squares-sum (expt (iter (for i from 1 to 100)
+                                 (sum i)) 2)))
+    (- squares-sum sum-squares)))
+
+(defun seven ()
+  nil)
+
+(defun eight ()
+  (with-open-file (in "8.txt")
+    (iter (with digits = (get-digits (parse-integer (read-line in))))
+          (repeat (- (length digits) 5))
+          (maximize (reduce #'* (subseq digits 0 5)))
+          (setf digits (rest digits)))))
+
 (defun sixteen ()
   (reduce #'+ (get-digits (expt 2 1000))))
 

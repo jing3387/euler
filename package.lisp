@@ -4,6 +4,11 @@
   (:export #:one
            #:two
            #:three
+           #:four
+           #:five
+           #:six
+           #:seven
+           #:eight
            #:sixteen
            #:seventeen
            #:nineteen))

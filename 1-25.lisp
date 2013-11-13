@@ -28,7 +28,8 @@
                   (in outer (maximize k)))))))
 
 (defun five ()
-  nil)
+  (apply #'lcm (iter (for i from 2 to 20)
+                     (collect i))))
 
 (defun six ()
   (let ((sum-squares (iter (for i from 1 to 100)
@@ -38,7 +39,12 @@
     (- squares-sum sum-squares)))
 
 (defun seven ()
-  nil)
+  (iter (with count = 1)
+        (for i from 1 by 2)
+        (when (primep i)
+          (incf count))
+        (when (= count 10001)
+          (leave i))))
 
 (defun eight ()
   (with-open-file (in "8.txt")
@@ -46,6 +52,9 @@
           (repeat (- (length digits) 5))
           (maximize (reduce #'* (subseq digits 0 5)))
           (setf digits (rest digits)))))
+
+(defun ten ()
+  (reduce #'+ (sieve 2000000)))
 
 (defun sixteen ()
   (reduce #'+ (get-digits (expt 2 1000))))
